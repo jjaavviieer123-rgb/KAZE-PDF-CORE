@@ -83,7 +83,7 @@ def build_latex(project_title, project_header, cart_items, service_items, totals
     return tex
 
 
-def generate_pdf(project_title, project_header, cart_items, service_items, totals):
+def generate_pdf(project_title, project_header, cart_items, service_items, totals, logo_path="1.png"):
     """Compila la plantilla canonica con pdflatex y devuelve bytes PDF."""
     if shutil.which("pdflatex") is None:
         raise RuntimeError("No se encontro pdflatex en este entorno.")
@@ -93,6 +93,10 @@ def generate_pdf(project_title, project_header, cart_items, service_items, total
         tmp_path = Path(tmpdir)
         tex_path = tmp_path / "presupuesto.tex"
         tex_path.write_text(tex, encoding="utf-8")
+
+        logo = Path(logo_path) if logo_path else None
+        if logo and logo.exists():
+            shutil.copy2(logo, tmp_path / logo.name)
 
         for _ in range(2):
             subprocess.run(
