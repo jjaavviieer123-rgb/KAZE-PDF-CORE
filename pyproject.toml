@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kaze-pdf-core"
-version = "0.1.0"
+version = "0.1.2"
 description = "Motor LaTeX compartido para los presupuestos de KaZe"
 requires-python = ">=3.10"
 

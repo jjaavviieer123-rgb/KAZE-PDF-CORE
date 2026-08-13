@@ -98,15 +98,19 @@ def generate_pdf(project_title, project_header, cart_items, service_items, total
         if logo and logo.exists():
             shutil.copy2(logo, tmp_path / logo.name)
 
+        last_output = ""
         for _ in range(2):
-            subprocess.run(
+            result = subprocess.run(
                 ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", tex_path.name],
                 cwd=tmpdir,
                 capture_output=True,
                 check=False,
             )
+            last_output = (result.stdout + result.stderr).decode(
+                "utf-8", errors="replace"
+            )
+            if result.returncode == 0 and (tmp_path / "presupuesto.pdf").exists():
+                return (tmp_path / "presupuesto.pdf").read_bytes()
 
-        pdf_path = tmp_path / "presupuesto.pdf"
-        if pdf_path.exists():
-            return pdf_path.read_bytes()
-    raise RuntimeError("pdflatex no pudo generar el PDF.")
+    diagnostico = " ".join(last_output.splitlines()[-8:])
+    raise RuntimeError(f"pdflatex no pudo generar el PDF. {diagnostico}")
