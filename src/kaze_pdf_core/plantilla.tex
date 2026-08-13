@@ -1,0 +1,177 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+
+\geometry{
+    top=2.3cm,
+    bottom=2cm,
+    left=1.5cm,
+    right=1.5cm,
+    headheight=1.2cm
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{\textbf{KaZe Soluciones Eléctricas}}
+\fancyhead[C]{\textbf{HEADER_PROYECTO}}
+
+\IfFileExists{1.png}{
+    \fancyhead[R]{\includegraphics[height=1.0cm]{1.png}}
+}{}
+
+\fancyfoot[L]{
+    \textbf{Felipe Nieto A.}\\
+    Instalador Autorizado SEC
+}
+
+\fancyfoot[C]{
+    \textbf{Rodrigo Nieto A.}\\
+    Técnico Eléctrico
+}
+
+\fancyfoot[R]{
+    \textbf{CONTACTO}\\
+    +569 7133 2734
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.1}
+
+% ==========================================================
+% TITULO
+% ==========================================================
+
+\begin{center}
+    \Large\textbf{PRESUPUESTO: TITULO_PROYECTO}
+\end{center}
+
+\vspace{0.2cm}
+
+% ==========================================================
+% MATERIALES
+% ==========================================================
+
+%% BLOCK_MATERIALES_SECTION %%
+\section*{Detalle de Materiales}
+
+\begin{tabularx}{\textwidth}{Xcrr}
+
+\toprule
+
+\textbf{Descripción}
+&
+\textbf{Cant.}
+&
+\textbf{Unitario (\$)}
+&
+\textbf{Total (\$)}
+\\
+
+\midrule
+
+BLOCK_MATERIALES
+
+\midrule
+
+\multicolumn{3}{l}{
+    \textbf{TOTAL PRESUPUESTADO MATERIALES}
+}
+&
+\textbf{\$ TOTAL_MATERIALES}
+\\
+
+\bottomrule
+
+\end{tabularx}
+
+\vspace{0.4cm}
+%% END_MATERIALES_SECTION %%
+
+% ==========================================================
+% SERVICIOS
+% ==========================================================
+
+%% BLOCK_SERVICIOS_SECTION %%
+\section*{Descripción Servicios}
+
+\begin{tabularx}{\textwidth}{Xr}
+
+\toprule
+
+\textbf{Descripción de los Servicios}
+&
+\textbf{Valor (\$)}
+\\
+
+\midrule
+
+BLOCK_SERVICIOS
+
+\midrule
+
+\textbf{TOTAL SERVICIOS}
+&
+\textbf{\$ TOTAL_SERVICIOS}
+\\
+
+\bottomrule
+
+\end{tabularx}
+
+\vspace{0.6cm}
+%% END_SERVICIOS_SECTION %%
+
+% ==========================================================
+% RESUMEN
+% ==========================================================
+
+\begin{flushright}
+
+\begin{tabular}{lr}
+
+Total Materiales:
+&
+\$ TOTAL_MATERIALES
+\\
+
+Total Servicios:
+&
+\$ TOTAL_SERVICIOS
+\\
+
+Subtotal:
+&
+\$ SUBTOTAL_GENERAL
+\\
+
+%% BLOCK_DESCUENTO_ROW %%
+DESCUENTO_LABEL:
+&
+-\$ TOTAL_DESCUENTO
+\\
+%% END_DESCUENTO_ROW %%
+
+\midrule
+
+\Large\textbf{TOTAL PRESUPUESTADO:}
+&
+\Large\textbf{\$ TOTAL_GENERAL}
+
+\end{tabular}
+
+\end{flushright}
+
+\end{document}
