@@ -61,6 +61,34 @@
 \vspace{0.2cm}
 
 % ==========================================================
+% DESCRIPCION (modos solo_total y listado)
+% ==========================================================
+
+%% BLOCK_DESCRIPCION %%
+\begin{center}
+    DESCRIPCION_PROYECTO
+\end{center}
+
+\vspace{0.2cm}
+%% END_DESCRIPCION %%
+
+% ==========================================================
+% LISTADO SIN VALORES (modo listado)
+% ==========================================================
+
+%% BLOCK_LISTADO_SECTION %%
+
+\section*{Detalle del Trabajo}
+
+\begin{itemize}
+BLOCK_LISTADO_ITEMS
+\end{itemize}
+
+\vspace{0.4cm}
+
+%% END_LISTADO_SECTION %%
+
+% ==========================================================
 % MATERIALES
 % ==========================================================
 
@@ -142,6 +170,8 @@ BLOCK_SERVICIOS
 
 \begin{tabular}{lr}
 
+%% BLOCK_DETALLE_TOTALES %%
+
 Total Materiales:
 &
 \$ TOTAL_MATERIALES
@@ -156,6 +186,8 @@ Subtotal:
 &
 \$ SUBTOTAL_GENERAL
 \\
+
+%% END_DETALLE_TOTALES %%
 
 %% BLOCK_DESCUENTO_ROW %%
 DESCUENTO_LABEL:
